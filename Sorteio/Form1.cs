@@ -33,13 +33,12 @@ namespace Sorteio
         private string Sorteio(string[] sts)
         {
             Random random = new Random();
-            return sts[random.Next(sts.Length)];
+            return sts[random.Next(0, sts.Length)];
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string path = txtPath.Text;
-
             try
             {
                 using (StreamReader sr = File.OpenText(path))
@@ -52,7 +51,6 @@ namespace Sorteio
 
                     lblGanhador.Text = Sorteio(lines).ToString();
                 }
-                
             }
             catch (Exception ex)
             {
